@@ -20,7 +20,17 @@
             "position": "before"
           },
           {
+            "pattern": "next",
+            "group": "external",
+            "position": "before"
+          },
+          {
             "pattern": "next/**",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "next-contentlayer/**",
             "group": "external",
             "position": "before"
           },
@@ -30,7 +40,7 @@
             "position": "after"
           }
         ],
-        "pathGroupsExcludedImportTypes": ["react", "next/**"],
+        "pathGroupsExcludedImportTypes": ["react", "next", "next/**"],
         "newlines-between": "always",
         "alphabetize": {
           "order": "asc",
