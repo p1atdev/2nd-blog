@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <main
       className={css({
-        fontSize: "2xl",
+        fontSize: "2xl"
       })}
     >
       Main page
