@@ -21,6 +21,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
+      "@panda/*": ["./styled-system/*"],
       "contentlayer/generated": ["./.contentlayer/generated"]
     }
   },
