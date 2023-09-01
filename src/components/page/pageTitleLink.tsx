@@ -42,14 +42,13 @@ const pageTitleText = css({
       textDecoration: "none",
     },
   },
+  verticalAlign: "middle",
   textTransform: "uppercase",
   lineHeight: "none",
 });
 
 const titleSpan = css({
-  bg: {
-    lg: "unset",
-  },
+  verticalAlign: "middle",
 });
 
 export function PageTitleLink({ title, href }: Props) {
