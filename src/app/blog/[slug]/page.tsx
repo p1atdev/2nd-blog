@@ -3,9 +3,9 @@ import { notFound } from "next/navigation";
 
 import { getMDXComponent } from "next-contentlayer/hooks";
 
+import { css } from "@panda/css";
 import { allPosts, type Post } from "contentlayer/generated";
 
-import { css } from "../../../../styled-system/css";
 
 import type { MDXComponents } from "mdx/types";
 

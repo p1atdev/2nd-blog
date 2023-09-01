@@ -1,10 +1,10 @@
-import { css } from "../../styled-system/css";
+import { css } from "@panda/css";
 
 export default function Home() {
   return (
     <main
       className={css({
-        fontSize: "2xl"
+        h: "100vh"
       })}
     >
       Main page
