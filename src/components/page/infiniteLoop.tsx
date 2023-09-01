@@ -15,6 +15,7 @@ export default function InfiniteLoop({ children, parentCSS, itemCSS }: Props) {
       className={cx(
         flex({
           whiteSpace: "nowrap",
+          overflow: "hidden",
         }),
         parentCSS
       )}
