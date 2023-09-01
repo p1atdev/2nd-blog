@@ -3,9 +3,9 @@ import { notFound } from "next/navigation";
 
 import { getMDXComponent } from "next-contentlayer/hooks";
 
-import { css } from "@panda/css";
 import { allPosts, type Post } from "contentlayer/generated";
 
+import { css } from "@panda/css";
 
 import type { MDXComponents } from "mdx/types";
 
@@ -19,7 +19,7 @@ interface Props {
 
 export async function generateStaticParams() {
   const paths = allPosts.map((post) => ({
-    slug: post.slug
+    slug: post.slug,
   }));
 
   return paths;
@@ -40,7 +40,7 @@ const mdxComponents: MDXComponents = {
     />
   ),
 
-  MyComponent: () => <div>This is my component!</div>
+  MyComponent: () => <div>This is my component!</div>,
 };
 
 export default async function BlogPostPage({ params }: Props) {
