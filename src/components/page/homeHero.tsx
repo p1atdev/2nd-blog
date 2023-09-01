@@ -86,6 +86,9 @@ export default function HomeHero() {
               base: "unset",
               md: "full",
             },
+            w: {
+              lg: "full",
+            },
             zIndex: 10,
             gap: {
               base: "0",

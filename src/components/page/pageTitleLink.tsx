@@ -13,10 +13,7 @@ const pageTitleText = css({
     color: "white",
     WebkitTextStroke: "1px black",
     _active: {
-      textDecoration: "underline",
-      textDecorationSkipInk: "none",
-      textDecorationThickness: "4px",
-      textUnderlineOffset: "4px",
+      bg: "white",
     },
   },
   sm: {
