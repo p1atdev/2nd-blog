@@ -1,11 +1,12 @@
 import { Poppins } from "next/font/google";
-import Image from "next/image";
 
 import { css, cx } from "@panda/css";
 import { vstack } from "@panda/patterns";
 
 import InfiniteLoop from "@/components/page/infiniteLoop";
 import { PageTitleLink } from "@/components/page/pageTitleLink";
+
+import ParallaxBG from "./parallaxBG";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -44,6 +45,7 @@ export default function HomeHero() {
         h: "100vh",
         w: "full",
         position: "relative",
+        overflow: "hidden",
       })}
     >
       <div
@@ -102,30 +104,8 @@ export default function HomeHero() {
         <PageTitleLink title="Hobbies" href="/hobbies" />
         <PageTitleLink title="Links" href="/links" />
       </section>
-      <figure
-        className={css({
-          position: "absolute",
-          top: 0,
-          right: 0,
-          maxW: {
-            base: "full",
-            lg: "2/3",
-          },
-          w: "full",
-          h: "100vh",
-          bg: "home.black",
-          zIndex: 0,
-        })}
-      >
-        <Image
-          className={css({
-            objectFit: "cover",
-          })}
-          src="/images/girl_dark_bright.jpg"
-          alt="illustraion of a girl as a background image"
-          fill
-        />
-      </figure>
+
+      <ParallaxBG />
     </section>
   );
 }

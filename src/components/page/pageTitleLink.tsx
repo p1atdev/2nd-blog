@@ -53,12 +53,10 @@ const titleSpan = css({
 
 export function PageTitleLink({ title, href }: Props) {
   return (
-    <>
-      <Link href={href}>
-        <p className={pageTitleText}>
-          <span className={titleSpan}>{title}</span>
-        </p>
-      </Link>
-    </>
+    <Link href={href}>
+      <p className={pageTitleText}>
+        <span className={titleSpan}>{title}</span>
+      </p>
+    </Link>
   );
 }
