@@ -2,6 +2,8 @@
 
 import { HTMLProps, ReactNode, useEffect, useState } from "react";
 
+import { isMobile } from "react-device-detect";
+
 interface Props extends HTMLProps<HTMLDivElement> {
   children: ReactNode;
 }
@@ -11,10 +13,23 @@ export default function MouseParallax({ children, ...props }: Props) {
 
   useEffect(() => {
     function onMouseMove(this: Window, ev: MouseEvent) {
-      setTransform([ev.pageX / 100, ev.pageY / 100]);
+      if (!isMobile) {
+        setTransform([ev.pageX / 100, ev.pageY / 100]);
+      }
     }
     window.addEventListener("mousemove", onMouseMove);
     return () => window.removeEventListener("mousemove", onMouseMove);
+  });
+
+  useEffect(() => {
+    function onDeviceOrientation(this: Window, ev: DeviceOrientationEvent) {
+      if (isMobile) {
+        setTransform([ev?.gamma ?? 0 / 100, ev?.beta ?? 0 / 100]);
+      }
+    }
+    window.addEventListener("deviceorientation", onDeviceOrientation);
+    return () =>
+      window.removeEventListener("deviceorientation", onDeviceOrientation);
   });
 
   return (

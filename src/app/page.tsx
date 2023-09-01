@@ -41,7 +41,7 @@ export default function Home() {
       <HomeHero />
       <section
         className={css({
-          h: "100vh",
+          h: "100svh",
         })}
       >
         Second section

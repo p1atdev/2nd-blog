@@ -9,20 +9,23 @@ interface Props {
 
 const pageTitleText = css({
   base: {
-    fontSize: "8xl",
+    fontSize: "6xl",
     color: "white",
+    WebkitTextStroke: "1px black",
     _active: {
       textDecoration: "underline",
-      textDecorationThickness: "2px",
+      textDecorationSkipInk: "none",
+      textDecorationThickness: "4px",
+      textUnderlineOffset: "4px",
     },
   },
-  md: {
-    fontSize: "9xl",
+  sm: {
+    fontSize: "7xl",
   },
-  lg: {
-    position: "relative",
-    WebkitTextStroke: "1px white",
-    color: "unset",
+  md: {
+    fontSize: "8xl",
+    WebkitTextStroke: "1px black",
+    color: "white",
 
     // 左半分白、右半分透明の背景を用意する
     backgroundImage: "linear-gradient(90deg, white 50%, transparent 50%)",
@@ -34,9 +37,16 @@ const pageTitleText = css({
     _hover: {
       // ホバー時に左の白い部分を表示
       backgroundPosition: "0%",
+      color: "black",
     },
-    // 背景のトランジション設定
-    transition: "background-position 0.2s ease-in-out",
+    // 背景と文字色のトランジション設定
+    transition:
+      "background-position 0.2s ease-in-out, color 0.2s ease-in-out, text-shadow 0.2s ease-in-out",
+  },
+  lg: {
+    fontSize: "9xl",
+    WebkitTextStroke: "1px white",
+    color: "transparent",
 
     _active: {
       textDecoration: "none",

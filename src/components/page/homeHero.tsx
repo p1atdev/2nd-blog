@@ -10,7 +10,7 @@ import ParallaxBG from "./parallaxBG";
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: "700",
+  weight: ["700", "800"],
 });
 
 const LoopTextBanner = () => {
@@ -23,7 +23,10 @@ const LoopTextBanner = () => {
       <p
         className={cx(
           css({
-            fontSize: "8xl",
+            fontSize: {
+              base: "7xl",
+              md: "8xl",
+            },
             textTransform: "uppercase",
             lineHeight: "none",
             color: "home.yellow",
@@ -42,7 +45,7 @@ export default function HomeHero() {
     <section
       className={css({
         bg: "home.black",
-        h: "100vh",
+        h: "100svh",
         w: "full",
         position: "relative",
         overflow: "hidden",
@@ -72,28 +75,36 @@ export default function HomeHero() {
       <section
         className={cx(
           vstack({
-            position: "relative",
+            position: "absolute",
+            bottom: 0,
             mixBlendMode: {
               base: "difference",
+              md: "unset",
               lg: "difference",
             },
-            h: "full",
+            h: {
+              base: "unset",
+              md: "full",
+            },
             zIndex: 10,
             gap: {
-              base: "4",
+              base: "0",
               lg: "0",
             },
             alignItems: "left",
             justifyContent: "space-evenly",
             py: {
-              base: "48",
+              base: "20",
+              sm: "24",
               md: "32",
               lg: "36",
             },
             pl: {
-              base: "8",
+              base: "4",
+              sm: "12",
               lg: "24",
             },
+            mt: "auto",
           }),
           poppins.className
         )}

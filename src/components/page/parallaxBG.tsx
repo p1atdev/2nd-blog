@@ -13,10 +13,10 @@ export default function ParallaxBG() {
         right: 0,
         w: "full",
         maxW: {
-          base: "4/5",
+          base: "full",
           lg: "2/3",
         },
-        h: "100vh",
+        h: "100svh",
       })}
     >
       <figure
