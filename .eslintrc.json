@@ -36,6 +36,11 @@
             "position": "before"
           },
           {
+            "pattern": "@panda/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
             "pattern": "@/**",
             "group": "internal",
             "position": "after"
