@@ -16,9 +16,40 @@ export default defineConfig({
       tokens: {
         colors: {
           home: {
-            background: {
+            black: {
               value: "#050404",
             },
+            yellow: {
+              value: "#FFFF21",
+            },
+          },
+        },
+      },
+      keyframes: {
+        infinite_loop_left: {
+          "0%": {
+            transform: "translateX(0%)",
+          },
+          "100%": {
+            transform: "translateX(-200%)",
+          },
+        },
+        // 1, 3, 5...
+        infinite_loop_left_odd: {
+          "0%": {
+            transform: "translateX(0%)",
+          },
+          "100%": {
+            transform: "translateX(-200%)",
+          },
+        },
+        // 2, 4, 6...
+        infinite_loop_left_even: {
+          "0%": {
+            transform: "translateX(100%)",
+          },
+          "100%": {
+            transform: "translateX(-100%)",
           },
         },
       },

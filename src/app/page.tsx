@@ -4,6 +4,7 @@ import Image from "next/image";
 import { css, cx } from "@panda/css";
 import { vstack } from "@panda/patterns";
 
+import InfiniteLoop from "@/components/page/infiniteLoop";
 import { PageTitleLink } from "@/components/page/pageTitleLink";
 
 const poppins = Poppins({
@@ -11,16 +12,61 @@ const poppins = Poppins({
   weight: "700",
 });
 
+const LoopTextBanner = () => {
+  return (
+    <InfiniteLoop
+      parentCSS={css({
+        gap: "2rem",
+      })}
+    >
+      <p
+        className={cx(
+          css({
+            fontSize: "8xl",
+            textTransform: "uppercase",
+            lineHeight: "none",
+            color: "home.yellow",
+          }),
+          poppins.className
+        )}
+      >
+        Hello, World
+      </p>
+    </InfiniteLoop>
+  );
+};
+
 export default function Home() {
   return (
     <main
       className={css({
-        bg: "home.background",
+        bg: "home.black",
         h: "100vh",
         position: "relative",
       })}
     >
-      <div
+      <section
+        className={css({
+          position: "absolute",
+          top: 0,
+          left: 0,
+          w: "full",
+          zIndex: 1,
+        })}
+      >
+        <LoopTextBanner />
+      </section>
+      <section
+        className={css({
+          position: "absolute",
+          bottom: 0,
+          w: "full",
+          zIndex: 1,
+        })}
+      >
+        <LoopTextBanner />
+      </section>
+      <section
         className={cx(
           vstack({
             position: "relative",
@@ -54,7 +100,7 @@ export default function Home() {
         <PageTitleLink title="Blog" href="/blog" />
         <PageTitleLink title="Hobbies" href="/hobbies" />
         <PageTitleLink title="Links" href="/links" />
-      </div>
+      </section>
       <figure
         className={css({
           position: "absolute",
@@ -66,7 +112,7 @@ export default function Home() {
           },
           w: "full",
           h: "100vh",
-          bg: "home.background",
+          bg: "home.black",
           zIndex: 0,
         })}
       >
