@@ -1,51 +1,31 @@
-import { Poppins } from "next/font/google";
+"use client";
 
-import { css, cx } from "@panda/css";
+import { Parallax, ParallaxLayer } from "@react-spring/parallax";
+
 import { vstack } from "@panda/patterns";
 
-import HomeHero from "@/components/page/homeHero";
-import InfiniteLoop from "@/components/page/infiniteLoop";
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: "700",
-});
-
-const LoopTextBanner = () => {
-  return (
-    <InfiniteLoop
-      parentCSS={css({
-        gap: "2rem",
-      })}
-    >
-      <p
-        className={cx(
-          css({
-            fontSize: "8xl",
-            textTransform: "uppercase",
-            lineHeight: "none",
-            color: "home.yellow",
-          }),
-          poppins.className
-        )}
-      >
-        Hello, World
-      </p>
-    </InfiniteLoop>
-  );
-};
+import AboutSection from "@/components/page/aboutSection";
+import HomeHeroSection from "@/components/page/homeHeroSection";
 
 export default function Home() {
   return (
-    <main className={vstack()}>
-      <HomeHero />
-      <section
-        className={css({
-          h: "100svh",
-        })}
+    // <main className={vstack()}>
+    <Parallax className={vstack()} pages={3}>
+      <ParallaxLayer offset={0} speed={0.1}>
+        <HomeHeroSection />
+      </ParallaxLayer>
+      <ParallaxLayer
+        sticky={{
+          start: 1,
+          end: 2,
+        }}
+        // {/* // offset={1} */}
+        factor={2}
+        speed={0.5}
       >
-        Second section
-      </section>
-    </main>
+        <AboutSection />
+      </ParallaxLayer>
+    </Parallax>
+    // {/* </main> */}
   );
 }

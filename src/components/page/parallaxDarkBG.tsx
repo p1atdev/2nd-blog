@@ -4,7 +4,7 @@ import { css } from "@panda/css";
 
 import MouseParallax from "../common/mouseParallax";
 
-export default function ParallaxBG() {
+export default function ParallaxDarkBG() {
   return (
     <MouseParallax
       className={css({

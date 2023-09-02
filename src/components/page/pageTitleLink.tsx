@@ -12,6 +12,8 @@ const pageTitleText = css({
     fontSize: "6xl",
     color: "white",
     WebkitTextStroke: "1px black",
+  },
+  smDown: {
     _active: {
       bg: "white",
     },
@@ -34,7 +36,7 @@ const pageTitleText = css({
     _hover: {
       // ホバー時に左の白い部分を表示
       backgroundPosition: "0%",
-      color: "black",
+      color: "home.black",
     },
     // 背景と文字色のトランジション設定
     transition:
@@ -44,10 +46,6 @@ const pageTitleText = css({
     fontSize: "9xl",
     WebkitTextStroke: "1px white",
     color: "transparent",
-
-    _active: {
-      textDecoration: "none",
-    },
   },
   verticalAlign: "middle",
   textTransform: "uppercase",

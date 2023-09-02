@@ -6,7 +6,7 @@ import { vstack } from "@panda/patterns";
 import InfiniteLoop from "@/components/page/infiniteLoop";
 import { PageTitleLink } from "@/components/page/pageTitleLink";
 
-import ParallaxBG from "./parallaxBG";
+import ParallaxDarkBG from "./parallaxDarkBG";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -40,7 +40,7 @@ const LoopTextBanner = () => {
   );
 };
 
-export default function HomeHero() {
+export default function HomeHeroSection() {
   return (
     <section
       className={css({
@@ -115,11 +115,12 @@ export default function HomeHero() {
         <PageTitleLink title="About" href="/about" />
         <PageTitleLink title="Works" href="/works" />
         <PageTitleLink title="Blog" href="/blog" />
+        <PageTitleLink title="Gallery" href="/gallery" />
         <PageTitleLink title="Hobbies" href="/hobbies" />
         <PageTitleLink title="Links" href="/links" />
       </section>
 
-      <ParallaxBG />
+      <ParallaxDarkBG />
     </section>
   );
 }
