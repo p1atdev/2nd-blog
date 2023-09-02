@@ -1,14 +1,14 @@
-import { Noto_Serif_JP } from "next/font/google";
+import { Ubuntu_Mono } from "next/font/google";
 
 import { css, cx } from "@panda/css";
 import { stack } from "@panda/patterns";
 
-const serif = Noto_Serif_JP({
+const ubuntu = Ubuntu_Mono({
   subsets: ["latin"],
-  weight: ["200", "600"],
+  weight: ["400", "700"],
 });
 
-export default function AboutSection() {
+export default function WorksSection() {
   return (
     <section
       className={cx(
@@ -18,7 +18,7 @@ export default function AboutSection() {
           px: "12",
           gap: "2",
         }),
-        serif.className
+        ubuntu.className
       )}
     >
       <h3
@@ -27,9 +27,9 @@ export default function AboutSection() {
           fontWeight: "extrabold",
         })}
       >
-        About
+        ### Works
       </h3>
-      <p>そう、私です。</p>
+      <p>制作物とか</p>
     </section>
   );
 }

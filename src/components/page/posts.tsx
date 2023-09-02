@@ -1,14 +1,14 @@
-import { Noto_Serif_JP } from "next/font/google";
+import { M_PLUS_1 } from "next/font/google";
 
 import { css, cx } from "@panda/css";
 import { stack } from "@panda/patterns";
 
-const serif = Noto_Serif_JP({
+const m_plus = M_PLUS_1({
   subsets: ["latin"],
-  weight: ["200", "600"],
+  weight: ["400", "700"],
 });
 
-export default function AboutSection() {
+export default function PostsSection() {
   return (
     <section
       className={cx(
@@ -18,18 +18,18 @@ export default function AboutSection() {
           px: "12",
           gap: "2",
         }),
-        serif.className
+        m_plus.className
       )}
     >
       <h3
         className={css({
-          fontSize: "6xl",
-          fontWeight: "extrabold",
+          fontSize: "5xl",
+          fontWeight: "bold",
         })}
       >
-        About
+        書いた記事
       </h3>
-      <p>そう、私です。</p>
+      <p>Zennなど</p>
     </section>
   );
 }

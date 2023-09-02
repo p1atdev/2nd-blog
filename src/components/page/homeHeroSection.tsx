@@ -114,7 +114,7 @@ export default function HomeHeroSection() {
       >
         <PageTitleLink title="About" href="/about" />
         <PageTitleLink title="Works" href="/works" />
-        <PageTitleLink title="Blog" href="/blog" />
+        <PageTitleLink title="Posts" href="/posts" />
         <PageTitleLink title="Gallery" href="/gallery" />
         <PageTitleLink title="Hobbies" href="/hobbies" />
         <PageTitleLink title="Links" href="/links" />
