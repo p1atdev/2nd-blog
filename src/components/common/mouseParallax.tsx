@@ -21,16 +21,16 @@ export default function MouseParallax({ children, ...props }: Props) {
     return () => window.removeEventListener("mousemove", onMouseMove);
   });
 
-  useEffect(() => {
-    function onDeviceOrientation(this: Window, ev: DeviceOrientationEvent) {
-      if (isMobile) {
-        setTransform([ev?.gamma ?? 0 / 100, ev?.beta ?? 0 / 100]);
-      }
-    }
-    window.addEventListener("deviceorientation", onDeviceOrientation);
-    return () =>
-      window.removeEventListener("deviceorientation", onDeviceOrientation);
-  });
+  // useEffect(() => {
+  //   function onDeviceOrientation(this: Window, ev: DeviceOrientationEvent) {
+  //     if (isMobile) {
+  //       setTransform([ev?.gamma ?? 0 / 100, ev?.beta ?? 0 / 100]);
+  //     }
+  //   }
+  //   window.addEventListener("deviceorientation", onDeviceOrientation);
+  //   return () =>
+  //     window.removeEventListener("deviceorientation", onDeviceOrientation);
+  // });
 
   return (
     <div
