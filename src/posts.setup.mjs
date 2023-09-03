@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { env } from "process";
 
 import { simpleGit } from "simple-git";
 
@@ -9,7 +10,14 @@ const destDir = path.resolve("public", "assets");
 console.log("Copying images to public folder...");
 
 const submoduleInit = async () => {
-  await simpleGit().submoduleUpdate(["--init", "--recursive"], (err, data) => {
+  const GITHUB_ASSETS_KEY = env.GITHUB_ASSETS_KEY; // set in vercel env var
+  const config = GITHUB_ASSETS_KEY
+    ? [`Authorization: token ${GITHUB_ASSETS_KEY}`]
+    : [];
+
+  await simpleGit({
+    config,
+  }).submoduleUpdate(["--init", "--recursive"], (err, data) => {
     if (err) {
       throw err;
     }
