@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "prepare": "panda codegen",
+    "prepare:panda": "panda codegen",
+    "prepare:posts": "ts-node --esm ./src/posts.setup.ts",
+    "prepare": "yarn prepare:panda && yarn prepare:posts",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -32,7 +34,11 @@
   },
   "devDependencies": {
     "@pandacss/dev": "^0.13.1",
+    "@swc/core": "^1.3.82",
+    "@swc/helpers": "^0.5.1",
     "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-unused-imports": "^3.0.0"
+    "eslint-plugin-unused-imports": "^3.0.0",
+    "regenerator-runtime": "^0.14.0",
+    "ts-node": "^10.9.1"
   }
 }
