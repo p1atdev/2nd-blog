@@ -9,15 +9,25 @@ const destDir = path.resolve("public", "assets");
 
 console.log("Copying images to public folder...");
 
-const submoduleInit = async () => {
+// 行儀が悪いけど、vercelのときだけurlを書き換えてトークンを差し込む
+const configureSubmoduleUrl = () => {
   const GITHUB_ASSETS_KEY = env.GITHUB_ASSETS_KEY; // set in vercel env var
-  const config = GITHUB_ASSETS_KEY
-    ? [`Authorization: token ${GITHUB_ASSETS_KEY}`]
-    : [];
+  if (!GITHUB_ASSETS_KEY) {
+    return;
+  }
 
-  await simpleGit({
-    config,
-  }).submoduleUpdate(["--init", "--recursive"], (err, data) => {
+  // .gitmodules の url を書き換える
+  const gitmodulesPath = path.resolve(".gitmodules");
+  const gitmodules = fs.readFileSync(gitmodulesPath, "utf-8");
+  const newGitmodules = gitmodules.replace(
+    "https://github.com",
+    `https://${GITHUB_ASSETS_KEY}@github.com`
+  );
+  fs.writeFileSync(gitmodulesPath, newGitmodules, "utf-8");
+};
+
+const submoduleInit = async () => {
+  await simpleGit().submoduleUpdate(["--init", "--recursive"], (err, data) => {
     if (err) {
       throw err;
     }
@@ -56,6 +66,7 @@ const copyAssets = () => {
 };
 
 const main = async () => {
+  configureSubmoduleUrl();
   await submoduleInit();
   copyAssets("content/posts");
 };
