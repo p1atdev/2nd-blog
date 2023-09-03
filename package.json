@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "prepare:panda": "panda codegen",
-    "prepare:posts": "ts-node --esm ./src/posts.setup.ts",
+    "prepare:posts": "ts-node --esm ./src/posts.setup.mjs",
     "prepare": "yarn prepare:panda && yarn prepare:posts",
     "dev": "next dev",
     "build": "next build",
@@ -30,6 +30,7 @@
     "react-device-detect": "^2.2.3",
     "react-dom": "18.2.0",
     "sharp": "^0.32.5",
+    "simple-git": "^3.19.1",
     "typescript": "5.2.2"
   },
   "devDependencies": {
