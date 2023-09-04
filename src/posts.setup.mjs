@@ -18,10 +18,9 @@ const cloneSubmoduleRepo = async () => {
   }
 
   if (fs.existsSync(postsDir)) {
-    console.log("Posts directory already exists. Skipping clone.");
-    // ls
-    const files = fs.readdirSync(postsDir);
-    console.log("files:", files);
+    console.log("Posts directory already exists.");
+    fs.rmSync(postsDir, { recursive: true, force: true });
+    console.log("Removed posts directory.");
     return;
   }
 
