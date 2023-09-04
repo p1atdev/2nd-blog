@@ -17,6 +17,11 @@ const cloneSubmoduleRepo = async () => {
     return;
   }
 
+  if (fs.existsSync(postsDir)) {
+    console.log("Posts directory already exists. Skipping clone.");
+    return;
+  }
+
   await simpleGit().clone(GITHUB_ASSETS_REPO_URL, postsDir);
 };
 
