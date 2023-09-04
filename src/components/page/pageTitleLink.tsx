@@ -11,7 +11,6 @@ const pageTitleText = css({
   base: {
     fontSize: "6xl",
     color: "white",
-    WebkitTextStroke: "1px black",
   },
   smDown: {
     _active: {
@@ -21,9 +20,12 @@ const pageTitleText = css({
   sm: {
     fontSize: "7xl",
   },
+  mdOnly: {
+    textShadow: "0px 0px 4px rgba(0, 0, 0, 0.5)",
+  },
   md: {
     fontSize: "8xl",
-    WebkitTextStroke: "1px black",
+
     color: "white",
 
     // 左半分白、右半分透明の背景を用意する
