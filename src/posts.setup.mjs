@@ -19,10 +19,17 @@ const cloneSubmoduleRepo = async () => {
 
   if (fs.existsSync(postsDir)) {
     console.log("Posts directory already exists. Skipping clone.");
+    // ls
+    const files = fs.readdirSync(postsDir);
+    console.log("files:", files);
     return;
   }
 
   await simpleGit().clone(GITHUB_ASSETS_REPO_URL, postsDir);
+
+  if (!fs.existsSync(postsDir)) {
+    throw new Error("Failed to clone submodule repo.");
+  }
 };
 
 const copyAssets = () => {
