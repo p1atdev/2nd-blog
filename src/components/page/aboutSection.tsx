@@ -1,9 +1,10 @@
 import { Noto_Serif_JP } from "next/font/google";
 import Image from "next/image";
 
+import { motion } from "framer-motion";
+
 import { css, cx } from "@panda/css";
 import { stack } from "@panda/patterns";
-import { token } from "@panda/tokens";
 
 const serif = Noto_Serif_JP({
   subsets: ["latin"],
@@ -44,10 +45,9 @@ const Heading3 = ({ children }: { children: React.ReactNode }) => {
       <span
         className={cx(
           css({
-            bg: `linear-gradient(transparent 60%, ${token(
-              "colors.home.purple.light"
-            )} 60%)`,
-            pr: "8",
+            // 本当は token() 関数でやりたいが、pandacssがバグってるのでとりあえずは直で書く
+            bg: `linear-gradient(transparent 60%, var(--colors-home-purple-light) 60%)`,
+            pr: "6",
           }),
           returnSymbol("4xl")
         )}
@@ -65,7 +65,10 @@ export default function AboutSection() {
         stack({
           h: "100svh",
           bg: "white",
-          px: "12",
+          px: {
+            base: "2",
+            sm: "12",
+          },
           gap: "2",
         }),
         serif.className
@@ -76,24 +79,22 @@ export default function AboutSection() {
           zIndex: 1,
           h: "full",
           justifyContent: "space-evenly",
-          alignContent: "start",
-          py: {
-            base: "10",
+          mb: {
+            base: "20",
           },
         })}
       >
-        <div
-          className={css({
-            h: "full",
-          })}
-        >
+        <div>
           <Heading3>About me</Heading3>
           {aboutMeParagraph.map((text, i) => {
             return (
               <p
                 className={cx(
                   css({
-                    my: "4",
+                    my: {
+                      base: "2",
+                      md: "4",
+                    },
                   }),
                   returnSymbol()
                 )}
@@ -104,11 +105,7 @@ export default function AboutSection() {
             );
           })}
         </div>
-        <div
-          className={css({
-            h: "full",
-          })}
-        >
+        <div>
           <Heading3>About this website</Heading3>
           {aboutThisWebsiteParagraph.map((text, i) => {
             return (
@@ -128,10 +125,9 @@ export default function AboutSection() {
         </div>
       </div>
 
-      <figure
+      <motion.figure
         className={css({
           position: "absolute",
-          top: 0,
           right: 0,
           w: "full",
           maxW: {
@@ -141,17 +137,28 @@ export default function AboutSection() {
           h: "100svh",
           zIndex: 0,
         })}
+        initial={"hidden"}
+        whileInView={"visible"}
+        transition={{ type: "tween", duration: 0.8, ease: "easeInOut" }}
+        viewport={{ once: true, amount: 0.5 }}
+        variants={{
+          visible: { opacity: 1, x: 0 },
+          hidden: { opacity: 0, x: "10%" },
+        }}
       >
         <Image
           className={css({
             objectFit: "cover",
-            objectPosition: "top right",
+            objectPosition: {
+              base: "unset",
+              md: "top right",
+            },
           })}
           src="/images/girl_purple.jpg"
           alt="illustration of a girl as a background image"
           fill
         />
-      </figure>
+      </motion.figure>
     </section>
   );
 }
