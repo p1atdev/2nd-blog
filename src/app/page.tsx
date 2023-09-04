@@ -6,7 +6,7 @@ import { vstack } from "@panda/patterns";
 
 import AboutSection from "@/components/page/aboutSection";
 import HomeHeroSection from "@/components/page/homeHeroSection";
-import PostsSection from "@/components/page/posts";
+import PostsSection from "@/components/page/postsSection";
 import WorksSection from "@/components/page/worksSection";
 
 export default function Home() {
