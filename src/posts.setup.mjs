@@ -21,7 +21,6 @@ const cloneSubmoduleRepo = async () => {
     console.log("Posts directory already exists.");
     fs.rmSync(postsDir, { recursive: true, force: true });
     console.log("Removed posts directory.");
-    return;
   }
 
   await simpleGit().clone(GITHUB_ASSETS_REPO_URL, postsDir);
