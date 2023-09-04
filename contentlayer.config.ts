@@ -1,4 +1,5 @@
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
+import remarkUnwrapImages from "remark-unwrap-images";
 
 export const Post = defineDocumentType(() => ({
   name: "Post",
@@ -21,4 +22,7 @@ export const Post = defineDocumentType(() => ({
 export default makeSource({
   contentDirPath: "src/posts",
   documentTypes: [Post],
+  mdx: {
+    remarkPlugins: [remarkUnwrapImages],
+  },
 });
