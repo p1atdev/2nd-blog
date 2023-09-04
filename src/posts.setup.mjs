@@ -16,6 +16,8 @@ const configureSubmoduleUrl = () => {
     return;
   }
 
+  // console.log("GITHUB_ASSETS_KEY:", GITHUB_ASSETS_KEY);
+
   // .gitmodules の url を書き換える
   const gitmodulesPath = path.resolve(".gitmodules");
   const gitmodules = fs.readFileSync(gitmodulesPath, "utf-8");
@@ -27,6 +29,14 @@ const configureSubmoduleUrl = () => {
 };
 
 const submoduleInit = async () => {
+  const GIT_USERNAME = env.GIT_USERNAME;
+  const GIT_EMAIL = env.GIT_EMAIL;
+
+  if (GIT_USERNAME && GIT_EMAIL) {
+    await simpleGit().addConfig("user.name", GIT_USERNAME);
+    await simpleGit().addConfig("user.email", GIT_EMAIL);
+  }
+
   await simpleGit().submoduleUpdate(["--init", "--recursive"], (err, data) => {
     if (err) {
       throw err;
