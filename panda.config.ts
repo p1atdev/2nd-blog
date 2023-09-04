@@ -22,6 +22,14 @@ export default defineConfig({
             yellow: {
               value: "#FFFF21",
             },
+            red: {
+              value: "#FF292F",
+            },
+            purple: {
+              light: {
+                value: "#EEE7FF",
+              },
+            },
           },
         },
       },
